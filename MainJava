@@ -1,0 +1,125 @@
+package kr.co.uhs.myapplication;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CheckedTextView;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.PopupMenu;
+import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.view.View;
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity {
+
+    private ArrayList<String> mData = new ArrayList<String>();
+    private int mNextNumber;
+    private ListView mList;
+    private ArrayAdapter<String> mAdapter;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        /*
+        for(int i = 1; i <= 5; i++) {
+            mData.add("항목" + i);
+        }
+        mNextNumber = 6;
+
+        mList = (ListView)findViewById(R.id.list);
+        mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice, mData);
+        mList.setAdapter(mAdapter);
+        mList.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);*/
+    }
+    /*
+    public void mOnClick(View v){
+        switch(v.getId()){
+            case R.id.creatBtn:
+                mData.add("항목" + mNextNumber++);
+                mAdapter.notifyDataSetChanged();
+                break;
+            case R.id.deletBtn:
+                int index = mList.getCheckedItemPosition();
+                if(index != AdapterView.INVALID_POSITION){
+                    mList.clearChoices();
+                    mData.remove(index);
+                    mAdapter.notifyDataSetChanged();
+                }
+                break;
+        }
+    }*/
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.seoul:
+                Toast.makeText(this, "서울", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.sejong:
+                //세종만 출력
+                break;
+            case R.id.busan:
+                //부산만 출력
+                break;
+            case R.id.incheon:
+                //인천만 출력
+                break;
+            case R.id.daegu:
+                //대구만 출력
+                break;
+            case R.id.gwangju:
+                //광주만 출력
+                break;
+            case R.id.gangwon:
+                //강원만 출력
+                break;
+            case R.id.gg:
+                //경기만 출력
+                break;
+            case R.id.chungbuk:
+                //충북만 출력
+                break;
+            case R.id.chungnam:
+                //충남만 출력
+                break;
+            case R.id.gyeongbuk:
+                //경북만 출력
+                break;
+            case R.id.gyeongnam:
+                //경남만 출력
+                break;
+            case R.id.jeonbuk:
+                //전북만 출력
+                break;
+            case R.id.jeonnam:
+                //전남만 출력
+                break;
+            case R.id.jeju:
+                //제주만 출력
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}
