@@ -1,0 +1,54 @@
+package com.example.exampleproject;
+
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuInflater;
+import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    private Button mBtnEdit;
+    private Button mBtnDelete;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_edit);
+
+        mBtnEdit = (Button)findViewById(R.id.btnEdit);
+        mBtnDelete = (Button)findViewById(R.id.btnDelete);
+    }
+
+    public void mOnClick(View v){
+        switch(v.getId()){
+            case R.id.btnEdit:
+                //편집창으로 가기
+                break;
+            case R.id.btnDelete://삭제 묻기는 다이얼로그(커스텀 대화상자의 같거나 업그레이드같은)로
+                //사용자 확인 비교문
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setIcon(R.mipmap.ic_launcher);
+                builder.setTitle("삭제");
+                builder.setMessage("정말 삭제하시겠습니까?");
+                builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //삭제하기
+                    }
+                });
+                builder.setNegativeButton("취소", null);
+                builder.create().show();
+                //아닐 시 권한불가 출력
+                break;
+        }
+    }
+}
